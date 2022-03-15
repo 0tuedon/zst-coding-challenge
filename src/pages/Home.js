@@ -33,7 +33,7 @@ const Home = () => {
   return (
     
     <>
-    <Box w={"60%"} p={"5"}  filter={(contactModal || !isLoggedIn) && "blur(10px)"} overflowX={"hidden"}>
+    <Box w={["100%","60%"]} p={"5"}  filter={(contactModal || !isLoggedIn) && "blur(10px)"} overflowX={"hidden"}>
       <SearchComponent search={search} setSearch={setSearch}/>
       <Heading mt={"4"}>
         Listings

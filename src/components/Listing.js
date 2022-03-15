@@ -13,7 +13,7 @@ const Listing = (props) => {
     
       columnGap={"8"}
       shadow={"md"}
-      p={"3"}
+      p={["5","5","3"]}
       rounded={"lg"}
       boxSizing={"border-box"}
      
