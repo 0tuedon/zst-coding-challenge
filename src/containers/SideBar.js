@@ -1,8 +1,7 @@
 import { Box, Button, Flex, Image, Link, Text } from "@chakra-ui/react";
-
-import {HiOutlineSpeakerphone} from 'react-icons/hi'
-
+import jsCookie from "js-cookie";
 export const NavItem = (props) => {
+ 
   return (
     <Link href={props.route}>
       <Box
@@ -34,6 +33,10 @@ export const NavItem = (props) => {
 };
 
 const SideBar = (props) => {
+  const logout = ()=>{
+    jsCookie.remove("user")
+    jsCookie.remove("email")
+  }
   const navs = [
     {
       name: "Listings",
@@ -43,31 +46,31 @@ const SideBar = (props) => {
     },
     {
       name: "Dashboard",
-      route: "/orders",
+      route: "/",
       iconActive: "/svgs/dashboard.svg",
       iconInActive: "/icons/tag-user.svg",
     },
     {
       name: "Providers",
-      route: "/marketplace",
+      route: "/",
       iconActive: "/svgs/laptop.svg",
       iconInActive: "/icons/category-outline.svg",
     },
     {
       name: "User",
-      route: "/notifications",
+      route: "/",
       iconActive: "/svgs/users.svg",
       iconInActive: "/svgs/users.svg",
     },
     {
       name: "Billing",
-      route: "userprofile",
+      route: "/",
       iconActive: "/svgs/card.svg",
       iconInActive: "/icons/user-profile-outline.svg",
     },
     {
         name: "Settings",
-        route: "userprofile",
+        route: "/",
         iconActive: "/svgs/setting.svg",
         iconInActive: "/icons/user-profile-outline.svg",
       },
@@ -83,7 +86,7 @@ const SideBar = (props) => {
       top={0}
       bottom={0}
       h="100vh"
-      w="100%"
+      w="40%"
       maxW="212px"
       minW="212px"
       shadow={"2xl"}
@@ -107,6 +110,9 @@ const SideBar = (props) => {
           ></NavItem>
           // </Box>
         ))}
+        <Button onClick={e=> {e.preventDefault(); logout()}}>
+          Logout
+        </Button>
         {/* </Box> */}
         <Box position={"relative"} py={"10"}>
         <Box bg={"#F2F9F2"} mx={"5"} rounded={"lg"} h={""} pt={"16"}>
